@@ -6,17 +6,23 @@
 </head>
 <body>
 
+<!-- HEADER -->
 <div class="header">
-  <div class="title">Online Mock Test</div>
+  <div class="exam-title">Mock Test</div>
   <div class="timer">Time Left: <span id="time">10:00</span></div>
 </div>
 
-<div class="exam-box">
+<!-- QUESTION NUMBERS (LIKE RAKURAKU) -->
+<div class="palette" id="palette"></div>
+
+<!-- QUESTION AREA -->
+<div class="question-box">
   <div id="qno"></div>
   <div id="question"></div>
   <div id="options"></div>
 
   <div class="buttons">
+    <button onclick="prev()">Previous</button>
     <button onclick="next()">Next</button>
     <button onclick="finish()">Submit</button>
   </div>
