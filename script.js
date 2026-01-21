@@ -72,15 +72,30 @@ function jump(i){
   show();
 }
 
+// FINISH - Show Score + Correct Answers
 function finish(){
   let score=0;
   quiz.forEach((q,i)=>{
     if(answers[i]===q.a) score++;
   });
-  document.body.innerHTML=`<div style="text-align:center;margin-top:50px">
-  <h2>Test Submitted</h2>
-  <h3>Score: ${score} / ${quiz.length}</h3>
-  </div>`;
+
+  let html=`<div style="max-width:800px;margin:20px auto;padding:20px;background:white">`;
+  html+=`<h2>Test Submitted</h2><h3>Score: ${score} / ${quiz.length}</h3><hr>`;
+
+  quiz.forEach((q,i)=>{
+    html+=`<div style="margin-bottom:15px">
+      <b>Q${i+1}: ${q.q}</b><br>`;
+    q.o.forEach(opt=>{
+      let style="";
+      if(opt===q.a) style="color:green;font-weight:bold"; // correct answer
+      if(answers[i]===opt && opt!==q.a) style="color:red;text-decoration:line-through"; // wrong selection
+      html+=`<div style="margin-left:20px;${style}">${opt}</div>`;
+    });
+    html+="</div>";
+  });
+
+  html+="</div>";
+  document.body.innerHTML=html;
 }
 
 show();
