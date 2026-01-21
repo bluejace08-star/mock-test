@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mock Test</title>
+  <title>Online Mock Test</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Mock Test</h2>
-<p>Time Left: <span id="time">10:00</span></p>
+<div class="header">
+  <div class="title">Online Mock Test</div>
+  <div class="timer">Time Left: <span id="time">10:00</span></div>
+</div>
 
-<p id="question"></p>
-<div id="options"></div>
+<div class="exam-box">
+  <div id="qno"></div>
+  <div id="question"></div>
+  <div id="options"></div>
 
-<button onclick="next()">Next</button>
+  <div class="buttons">
+    <button onclick="next()">Next</button>
+    <button onclick="finish()">Submit</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
