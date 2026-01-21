@@ -4,7 +4,6 @@ body {
   background: #f1f1f1;
 }
 
-/* HEADER */
 .header {
   background: #1e40af;
   color: white;
@@ -14,7 +13,6 @@ body {
   align-items: center;
 }
 
-/* QUESTION NUMBERS */
 .palette {
   background: white;
   padding: 10px;
@@ -42,7 +40,6 @@ body {
   color: white;
 }
 
-/* QUESTION BOX */
 .question-box {
   background: white;
   max-width: 800px;
