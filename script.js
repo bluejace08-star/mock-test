@@ -1,43 +1,68 @@
 let time = 600; // 10 minutes
-let q = 0;
+let index = 0;
 let score = 0;
+let selected = [];
 
-const questions = [
-  { q: "Capital of Nepal?", a: ["Kathmandu","Pokhara","Lalitpur"], c: "Kathmandu" },
-  { q: "2 + 2 = ?", a: ["2","3","4"], c: "4" }
+const quiz = [
+  {
+    q: "Capital of Nepal?",
+    o: ["Kathmandu", "Pokhara", "Lalitpur", "Bhaktapur"],
+    a: "Kathmandu"
+  },
+  {
+    q: "2 + 2 = ?",
+    o: ["1", "2", "3", "4"],
+    a: "4"
+  }
 ];
 
+// TIMER (FULL EXAM)
 setInterval(() => {
   time--;
   let m = Math.floor(time / 60);
   let s = time % 60;
   document.getElementById("time").innerText =
     m + ":" + (s < 10 ? "0" + s : s);
+
   if (time <= 0) finish();
 }, 1000);
 
 function show() {
-  document.getElementById("question").innerText = questions[q].q;
-  let o = "";
-  questions[q].a.forEach(x => {
-    o += `<button onclick="check('${x}')">${x}</button><br>`;
+  document.getElementById("qno").innerText =
+    "Question " + (index + 1);
+  document.getElementById("question").innerText =
+    quiz[index].q;
+
+  let html = "";
+  quiz[index].o.forEach(opt => {
+    html += `
+      <div class="option" onclick="select('${opt}')">
+        ${opt}
+      </div>
+    `;
   });
-  document.getElementById("options").innerHTML = o;
+  document.getElementById("options").innerHTML = html;
 }
 
-function check(ans) {
-  if (ans === questions[q].c) score++;
+function select(ans) {
+  selected[index] = ans;
+  if (ans === quiz[index].a) score++;
   next();
 }
 
 function next() {
-  q++;
-  if (q < questions.length) show();
+  index++;
+  if (index < quiz.length) show();
   else finish();
 }
 
 function finish() {
-  document.body.innerHTML = `<h2>Finished</h2><p>Score: ${score}</p>`;
+  document.body.innerHTML = `
+    <div style="text-align:center;margin-top:50px">
+      <h2>Test Submitted</h2>
+      <h3>Score: ${score}/${quiz.length}</h3>
+    </div>
+  `;
 }
 
 show();
