@@ -1,23 +1,53 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f1f1;
 }
 
+/* HEADER */
 .header {
-  background: #1e3a8a;
+  background: #1e40af;
   color: white;
-  padding: 15px 20px;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.exam-box {
+/* QUESTION NUMBERS */
+.palette {
   background: white;
-  max-width: 700px;
-  margin: 30px auto;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.palette span {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin: 5px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.palette .active {
+  background: #2563eb;
+  color: white;
+}
+
+.palette .answered {
+  background: #22c55e;
+  color: white;
+}
+
+/* QUESTION BOX */
+.question-box {
+  background: white;
+  max-width: 800px;
+  margin: 20px auto;
   padding: 20px;
-  border-radius: 5px;
 }
 
 #qno {
@@ -26,9 +56,8 @@ body {
 }
 
 .option {
-  display: block;
-  padding: 10px;
   border: 1px solid #ccc;
+  padding: 10px;
   margin: 8px 0;
   cursor: pointer;
 }
@@ -37,13 +66,19 @@ body {
   background: #eef;
 }
 
+.selected {
+  background: #dbeafe;
+  border-color: #2563eb;
+}
+
 .buttons {
-  margin-top: 15px;
   text-align: right;
+  margin-top: 15px;
 }
 
 button {
   padding: 8px 14px;
+  margin-left: 5px;
   border: none;
   background: #2563eb;
   color: white;
